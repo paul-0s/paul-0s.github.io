@@ -13,10 +13,41 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const ctx = canvas.getContext("2d");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    //  CANVAS SIZE
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
 
-    // 🔥 INTRO VIDEO SAFE
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    //  AUTOPLAY VIDEO SAFE
+    function tryPlayVideo() {
+        video.muted = true;
+        video.playsInline = true;
+
+        const playPromise = video.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                console.log("Autoplay bloqueado, esperando interacción");
+
+                const start = () => {
+                    video.play();
+                    document.removeEventListener("click", start);
+                    document.removeEventListener("touchstart", start);
+                };
+
+                document.addEventListener("click", start, { once: true });
+                document.addEventListener("touchstart", start, { once: true });
+            });
+        }
+    }
+
+    tryPlayVideo();
+
+    //  INTRO END
     video.addEventListener("ended", () => {
 
         intro.style.transition = "1s";
@@ -32,8 +63,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     });
 
-    // 🔥 TEXT TYPING
-    const text = "GAME DEVELOPER • 3D ARTIST • UI DESIGNER";
+    //  TYPEWRITER
+    const text = "DISEÑADOR (casi) • ARTISTA 3D • ''GAMEDEV'' • EDITOR AUDIOVISUAL";
     let i = 0;
 
     function typeWriter() {
@@ -46,14 +77,51 @@ window.addEventListener("DOMContentLoaded", () => {
 
     typeWriter();
 
-    // 🔥 BUTTON GLOBAL (IMPORTANTE)
+    //  SCROLL BUTTON
     window.scrollToProjects = function () {
         document.getElementById("projects").scrollIntoView({
             behavior: "smooth"
         });
     };
 
-    // 🔥 PARTICLES SAFE
+    //  MODAL OPEN (GLOBAL)
+    window.openModal = function (title, desc, media = []) {
+
+        const modal = document.getElementById("modal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalMedia = document.getElementById("modalMedia");
+
+        modalTitle.innerText = title;
+        modalDesc.innerText = desc;
+        modalMedia.innerHTML = "";
+
+        media.forEach(item => {
+
+            if (item.type === "img") {
+                const img = document.createElement("img");
+                img.src = item.src;
+                modalMedia.appendChild(img);
+            }
+
+            if (item.type === "video") {
+                const video = document.createElement("video");
+                video.src = item.src;
+                video.controls = true;
+                video.playsInline = true;
+                modalMedia.appendChild(video);
+            }
+        });
+
+        modal.classList.remove("hidden");
+    };
+
+    //  MODAL CLOSE (GLOBAL)
+    window.closeModal = function () {
+        document.getElementById("modal").classList.add("hidden");
+    };
+
+    //  PARTICLES
     const particles = [];
 
     for (let i = 0; i < 100; i++) {
@@ -65,12 +133,37 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    //  BARRAS
+    const bars = document.querySelectorAll(".bar");
+
+    window.addEventListener("scroll", () => {
+
+        const scrollY = window.scrollY;
+        const max = document.body.scrollHeight - window.innerHeight;
+
+        const progress = scrollY / max; // 0 → 1
+
+        bars.forEach((bar, index) => {
+
+            // cada barra tiene variación distinta
+            const base = 40;
+            const extra = 200;
+
+            const offset = index * 15;
+
+            const width = base + (progress * extra) + offset;
+
+            bar.style.width = `${width}px`;
+        });
+    });
+
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#00ff88";
+        ctx.fillStyle = "#00b7ff";
 
         particles.forEach(p => {
             p.y += p.speed;
+
             if (p.y > canvas.height) p.y = 0;
 
             ctx.fillRect(p.x, p.y, p.size, p.size);
@@ -81,3 +174,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
     animate();
 });
+

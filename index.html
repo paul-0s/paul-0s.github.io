@@ -7,9 +7,6 @@
 
     <title>Paul_0s</title>
 
-
-    <base href="/https://paul-0s.github.io//">
-
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -44,43 +41,78 @@
         <section class="status">
 
             <div class="card">
-                <h3>ESTADO</h3>
-                <p>ACTIVO</p>
+                <h3>BLENDER</h3>
+                <p>demonio del blender</p>
             </div>
 
             <div class="card">
-                <h3>PROYECTOS</h3>
-                <p>12+</p>
+                <h3>UNITY • UNREAL</h3>
+                <p>creo saber hacer fortnite aqui</p>
             </div>
 
             <div class="card">
-                <h3>SISTEMA</h3>
-                <p>T.U.L.A.</p>
+                <h3>CREATIVE CLOUD</h3>
+                <p>se me crashea siempre pero algo sale</p>
+            </div>
+
+            <div class="card">
+                <h3>MOHO</h3>
+                <p>demonio del moho</p>
             </div>
 
         </section>
 
         <section id="projects">
 
-            <h2>ARCHIVOS CLASIFICADOS</h2>
+            <h2>PROYECTOS</h2>
 
             <div class="grid">
 
-                <div class="project">
+                <!--  TARJETA 1 -->
+                <div class="project" onclick="openModal(
+                    'Proyecto Santiago',
+                    'Shooter ambientado en Santiago con estética retro-futurista.',
+                    [
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'video', src: '/comp1.mp4' }
+                    ]
+                )">
                     <img src="https://placehold.co/500x300">
                     <div class="overlay">
                         <h3>Proyecto Santiago</h3>
                     </div>
                 </div>
 
-                <div class="project">
+                <!--  TARJETA 2 -->
+                <div class="project" onclick="openModal(
+                    'NOSCROLL',
+                    'App para dejar de scrollear.',
+                    [
+                        { type: 'img', src: 'https://placehold.co/800x400' }
+                    ]
+                )">
                     <img src="https://placehold.co/500x300">
                     <div class="overlay">
                         <h3>FPS Retro</h3>
                     </div>
                 </div>
 
-                <div class="project">
+                <!--  TARJETA 3 -->
+                <div class="project" onclick="openModal(
+                    'Low Poly blender',
+                    'Varios assets creados en blender con estetica retro low-poly.',
+                    [
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' },
+                        { type: 'img', src: 'https://placehold.co/800x400' }
+
+                    ]
+                )">
                     <img src="https://placehold.co/500x300">
                     <div class="overlay">
                         <h3>UI Experiments</h3>
@@ -92,6 +124,36 @@
         </section>
 
     </main>
+
+    <!--  MODAL -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()">×</span>
+
+            <h2 id="modalTitle">Título</h2>
+
+            <p id="modalDesc">Descripción</p>
+
+            <div id="modalMedia"></div>
+
+        </div>
+    </div>
+
+
+    <!--  BARRAS --> 
+    <div class="side left">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="side right">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    
 
     <canvas id="particles"></canvas>
 
