@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paul_0s</title>
+
+    <!-- 🔥 CLAVE PARA GITHUB PAGES -->
+    <base href="/NOMBRE-DEL-REPO/">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="intro">
+        <video id="introVideo" autoplay playsinline>
+            <source src="./comp1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="crt"></div>
+
+    <main id="site">
+
+        <section class="hero">
+
+            <div class="glow"></div>
+
+            <h1 class="glitch" data-text="PAULO BORNSCHEUER">
+                PAULO BORNSCHEUER
+            </h1>
+
+            <p id="typed"></p>
+
+            <button onclick="scrollToProjects()">
+                ACCEDER
+            </button>
+
+        </section>
+
+        <section class="status">
+
+            <div class="card">
+                <h3>ESTADO</h3>
+                <p>ACTIVO</p>
+            </div>
+
+            <div class="card">
+                <h3>PROYECTOS</h3>
+                <p>12+</p>
+            </div>
+
+            <div class="card">
+                <h3>SISTEMA</h3>
+                <p>T.U.L.A.</p>
+            </div>
+
+        </section>
+
+        <section id="projects">
+
+            <h2>ARCHIVOS CLASIFICADOS</h2>
+
+            <div class="grid">
+
+                <div class="project">
+                    <img src="https://placehold.co/500x300">
+                    <div class="overlay">
+                        <h3>Proyecto Santiago</h3>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="https://placehold.co/500x300">
+                    <div class="overlay">
+                        <h3>FPS Retro</h3>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="https://placehold.co/500x300">
+                    <div class="overlay">
+                        <h3>UI Experiments</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <canvas id="particles"></canvas>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
