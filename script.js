@@ -64,7 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     //  TYPEWRITER
-    const text = "DISEÑADOR (casi) • ARTISTA 3D • ''GAMEDEV'' • EDITOR AUDIOVISUAL";
+    const text = "Creador multidisciplinario digital (o adicto a la pantalla)";
     let i = 0;
 
     function typeWriter() {
@@ -159,7 +159,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#00b7ff";
+        ctx.fillStyle = "rgba(230,224,214,.35)";
 
         particles.forEach(p => {
             p.y += p.speed;

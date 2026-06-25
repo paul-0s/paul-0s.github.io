@@ -7,16 +7,30 @@
 }
 
 :root{
-    --blue:#00b7ff;
-    --red:#ff003c;
-    --bg:#04060a;   
+
+
+    --bg:#080808;
+
+    --white:#f5eaea;
+
+    --red:#ff1f4d;
+
+    --redGlow:#ff0040;
+
+    --darkRed:#6e1026;
+
+    --blue:#5ec8ff;
+
+    --blueGlow:#00aaff;
 }
 
 body{
 
-    background:#04060a;
-    color:#dff6ff;
+    background:var(--bg);
+    color:var(--white);
+
     font-family:'Share Tech Mono';
+
     overflow-x:hidden;
 }
 
@@ -56,6 +70,26 @@ body{
     font-size:18px;
 }
 
+.hero-title{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.username{
+
+    font-size:.9rem;
+
+    letter-spacing:6px;
+
+    color:var(--red);
+
+    margin-bottom:10px;
+
+    opacity:.8;
+}
+
 .hero{
 
     min-height:100vh;
@@ -74,14 +108,19 @@ body{
 
     position:relative;
 
+    letter-spacing:8px;
+
+    color:var(--white);
+
     text-shadow:
-    0 0 10px var(--blue),
-    0 0 25px var(--blue),
-    0 0 40px var(--red);
+    0 0 5px var(--redGlow),
+    0 0 20px var(--redGlow),
+    2px 0 var(--blue);
 }
 
 .glitch::before{
     color:var(--red);
+    opacity:.6;
     animation:glitch1 .3s infinite;
 }
 .glitch::after{
@@ -91,6 +130,7 @@ body{
     position:absolute;
 
     color:var(--blue);
+    opacity:.6;
     animation:glitch2 .25s infinite;
 
     left:0;
@@ -112,14 +152,14 @@ body{
 @keyframes glitch1{
 
     0%{transform:translate(0);}
-    50%{transform:translate(-3px,2px);}
+    50%{transform:translate(-1px,1px);}
     100%{transform:translate(0);}
 }
 
 @keyframes glitch2{
 
     0%{transform:translate(0);}
-    50%{transform:translate(3px,-2px);}
+    50%{transform:translate(1px,-1px);}
     100%{transform:translate(0);}
 }
 
@@ -131,22 +171,35 @@ body{
 
 button{
 
+
     margin-top:40px;
+
     padding:15px 35px;
-    background:transparent;
-    border:2px solid var(--blue);
-    color:var(--blue);
+
+    background:var(--red);
+
+    border:2px solid var(--red);
+
+    color:white;
+
+    letter-spacing:3px;
+
+    box-shadow:
+
+    0 0 15px var(--red),
+    0 0 40px var(--red);
+
     cursor:pointer;
-    transition:.2s;
+
+    transition:.25s;
 }
 
 button:hover{
-    background:var(--red);
-    border-color:var(--red);
-    color:white;
-    box-shadow:
-    0 0 20px var(--red),
-    0 0 40px var(--blue);
+    background:var(--white);
+
+    color:black;
+
+    box-shadow:none;
 }
 
 .status{
@@ -161,21 +214,32 @@ button:hover{
 
 .card{
     width:250px;
-    border:1px solid var(--blue);
+    border:1px solid var(--red);
     padding:25px;
-    background:rgba(0,183,255,.05);
+    background:rgba(255,0,64,.05);
     backdrop-filter:blur(10px);
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
+
     border-color:var(--red);
-    box-shadow:0 0 25px var(--red);
+
+    box-shadow:
+
+    0 0 15px var(--red),
+    0 0 35px rgba(255,0,64,.4);
+
+    transform:translateY(-5px);
 }
 
 #projects{
-    border:1px solid var(--blue);
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.15);
     transition:.3s;
     padding:100px;
 }
@@ -202,13 +266,20 @@ button:hover{
 
     overflow:hidden;
 
-    border:1px solid #00ff88;
+    border:1px solid var(--red);
+
+    box-shadow:
+
+    0 0 20px rgba(255,0,64,.4);
 }
 
 .project img{
 
     width:100%;
+    height:300px;
+    object-fit:cover;
     display:block;
+
 
     transition:.4s;
 }
@@ -268,7 +339,17 @@ button:hover{
     max-height: 85vh;
     overflow-y: auto;
 
-    background: #05070c;
+    background:#0b0b0b;
+
+    border:1px solid var(--red);
+
+    color:var(--white);
+
+
+    box-shadow:
+
+    0 0 30px rgba(255,0,64,.25);
+
     border:1px solid var(--blue);
     padding: 20px;
 
@@ -286,7 +367,7 @@ button:hover{
     right: 15px;
     font-size: 32px;
     cursor: pointer;
-    color:var(--red);
+    color:var(--white);
 
     user-select: none;
 }
@@ -304,11 +385,18 @@ button:hover{
 
     pointer-events:none;
 
+    opacity:.12;
+
     background:
+
     repeating-linear-gradient(
+
         transparent 0px,
-        rgba(255,255,255,.03) 2px,
-        transparent 4px
+
+        rgba(255,255,255,.05) 1px,
+
+        transparent 3px
+
     );
 
     z-index:999;
@@ -377,8 +465,29 @@ canvas{
     height: 10px;
     width: 40px;
 
-    background: linear-gradient(90deg, var(--blue), var(--red));
-    box-shadow: 0 0 10px var(--blue);
+    background:rgba(255,255,255,.2);
+    box-shadow: none;
 
     transition: width 0.2s ease;
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+
+    url("noise.png");
+
+    opacity:.08;
+
+    mix-blend-mode:screen;
+
+    pointer-events:none;
+
+    z-index:998;
 }
