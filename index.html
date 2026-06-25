@@ -12,35 +12,29 @@
 
 <body>
 
+
     <div id="intro">
         <video id="introVideo" autoplay muted playsinline>
-            <source src="/comp1.mp4" type="video/mp4">
+            <source src="/Intro.mp4" type="video/mp4">
         </video>
     </div>
 
+
     <div id="crt"></div>
+    
 
     <main id="site">
 
         <section class="hero">
+            <video id="bgVideo" autoplay muted loop playsinline>
+                <source src="backloop.mp4" type="video/mp4">
+             </video>
 
             <div class="hero-title">
-
-            <span class="username">
-                 PAULO BORNSCHEUER
-            </span>
-
-            <h1 class="glitch" data-text="PAUL_0s">
-                PAUL_0s
-            </h1>
 
             </div>
 
             <p id="typed"></p>
-
-            <button onclick="scrollToProjects()">
-                ACCEDER
-            </button>
 
         </section>
 
@@ -226,9 +220,45 @@
                     </div>
                 </div>
 
-
             </div>
 
+        </section>
+
+        <!-- SOBRE MÍ -->
+        <section id="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>SOBRE MÍ</h2>
+                    <p>Soy Paulo Bornscheuer, me gusta crear cosas en el mundo digital, ya sea para un fin propio, o para un proyecto profesional, me desenvuelvo en herramientas como Blender, Unreal, Unity, Premiere, After Effects, etc. Y siempre estoy dispuesto a aprender herramientas nuevas.</p>
+                </div>
+                <div class="about-img">
+                    <img src="images/PFP.jpeg" alt="Paulo">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contact">
+            <h2>CONTACTO</h2>
+            <div class="contact-content">
+
+                <div class="contact-links">
+                    <a href="mailto:tuemail@gmail.com">
+                        <img src="images/mail.png" alt="Instagram" class="contact-icon"> p.bornsg@gmail.com
+                    </a>
+                    <a href="https://www.instagram.com/paul__0s/" target="_blank">
+                        <img src="images/instagram.png" alt="Instagram" class="contact-icon"> @paul__0s
+                    </a>
+                </div>
+
+                <div class="contact-form">
+                    <input type="text" id="fromName" placeholder="TU NOMBRE">
+                    <input type="email" id="fromEmail" placeholder="TU EMAIL">
+                    <textarea id="message" placeholder="TU MENSAJE" rows="5"></textarea>
+                    <button onclick="sendMail()">ENVIAR</button>
+                </div>
+
+            </div>
         </section>
 
     </main>
@@ -261,9 +291,7 @@
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
-    
 
-    <canvas id="particles"></canvas>
 
     <script src="/script.js"></script>
 
