@@ -89,6 +89,7 @@ body{
     align-items:center;
     text-align:center;
     opacity:1;
+    overflow: hidden;
 }
 
 .hero h1{
@@ -439,7 +440,7 @@ canvas{
     width: 20px;
     height: 20px;
     object-fit: contain;
-    filter: invert(1); /* si el png es negro, lo pone blanco */
+    filter: invert(1);
 }
 
 .contact-links a:hover {
@@ -482,48 +483,7 @@ canvas{
     transform: none;
 }
 
-/* ── RESPONSIVE ── */
-
-@media (max-width: 768px) {
-
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-
-    #projects {
-        padding: 50px 20px;
-    }
-
-    .status {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    #about,
-    #contact {
-        padding: 60px 20px;
-    }
-
-    .about-content,
-    .contact-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .about-img img {
-        width: 160px;
-        height: 160px;
-    }
-}
+/* ── BARRAS ── */
 
 .side {
     position: absolute;
@@ -566,4 +526,138 @@ body::before{
     mix-blend-mode:screen;
     pointer-events:none;
     z-index:998;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE MOBILE
+══════════════════════════════ */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+    .hero {
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+
+    #typed {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* STATUS CARDS */
+    .status {
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-60px);
+        margin-bottom: -60px;
+        gap: 12px;
+        padding: 0 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 380px;
+        transform: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    /* PROJECTS */
+    #projects {
+        padding: 60px 20px;
+    }
+
+    #projects h2 {
+        font-size: 1.4rem;
+        letter-spacing: 4px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project img {
+        height: 220px;
+    }
+
+    /* MODAL */
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+        max-height: 90vh;
+    }
+
+    /* ABOUT */
+    #about {
+        padding: 60px 20px;
+    }
+
+    .about-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .about-text h2 {
+        font-size: 1.4rem;
+        letter-spacing: 4px;
+    }
+
+    .about-text p {
+        font-size: .9rem;
+    }
+
+    .about-img img {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* CONTACT */
+    #contact {
+        padding: 60px 20px;
+    }
+
+    #contact h2 {
+        font-size: 1.4rem;
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-links {
+        width: 100%;
+    }
+
+    .contact-links a {
+        font-size: .9rem;
+        letter-spacing: 1px;
+        word-break: break-all;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: .85rem;
+        letter-spacing: 1px;
+    }
+
+    /* BARRAS — ocultar en mobile */
+    .side {
+        display: none;
+    }
 }
