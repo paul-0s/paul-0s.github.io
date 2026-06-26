@@ -28,6 +28,13 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     tryPlayVideo();
 
+    // PRECARGA BGVIDEO
+    const bgVideo = document.getElementById("bgVideo");
+    if (bgVideo) {
+        bgVideo.muted = true;
+        bgVideo.play().catch(() => {});
+    }
+
     //  INTRO END
     video.addEventListener("ended", () => {
         console.log("TERMINÓ EL VIDEO");
