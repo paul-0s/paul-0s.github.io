@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
             alert('Por favor completa todos los campos.');
             return;
         }
-        window.location.href = `mailto:tuemail@gmail.com?subject=Contacto de ${name}&body=${encodeURIComponent(msg)}%0A%0AEmail: ${email}`;
+        window.location.href = `mailto:p.bornsg@gmail.com?subject=Contacto de ${name}&body=${encodeURIComponent(msg)}%0A%0AEmail: ${email}`;
     };
 
 });
